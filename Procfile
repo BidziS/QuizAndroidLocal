@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar target/quizandroid-ver_2-0.0.1-SNAPSH.jar
