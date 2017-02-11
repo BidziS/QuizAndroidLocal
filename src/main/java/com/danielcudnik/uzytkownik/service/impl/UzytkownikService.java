@@ -96,6 +96,16 @@ public class UzytkownikService implements IUzytkownikService {
             }
         iUzytkownikRepository.delete(uzytkownikOB.getId());
     }
+    public void usunUzytkownikaPoId(Long aId) throws  MyServerException{
+        UzytkownikOB uzytkownikOB = iUzytkownikRepository.findOne(aId);
+        if(uzytkownikOB == null) throw new MyServerException("User with this id not exists",HttpStatus.NOT_FOUND,new HttpHeaders());
+        List<PunktyOB> punktyUzytkownika = iPunktyRepository.znajdzPunktyPoUzytkowniku(uzytkownikOB.getId());
+        if (!punktyUzytkownika.isEmpty())
+            for (PunktyOB punkty:punktyUzytkownika) {
+                iPunktyRepository.delete(punkty.getId());
+            }
+        iUzytkownikRepository.delete(uzytkownikOB.getId());
+    }
 
 
 }

@@ -1,7 +1,7 @@
 package com.danielcudnik.pytania.dto;
 
 
-import com.danielcudnik.base.DTO.BaseDTO;
+import com.danielcudnik.base.dto.BaseDTO;
 import com.danielcudnik.kategorie.dto.KategorieDTO;
 
 import java.util.Date;
@@ -16,7 +16,8 @@ public class PytaniaDTO extends BaseDTO {
     public PytaniaDTO(){
 
     }
-    public PytaniaDTO(Long id, Date techDate, String pytanie, KategorieDTO kategorieDTO){
+    public PytaniaDTO(Long id, Date techDate, String pytanie,
+                      KategorieDTO kategorieDTO){
         super(id, techDate);
         this.pytanie = pytanie;
         this.kategorieDTO = kategorieDTO;

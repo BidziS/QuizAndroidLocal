@@ -1,6 +1,6 @@
 package com.danielcudnik.tryb.dto;
 
-import com.danielcudnik.base.DTO.BaseDTO;
+import com.danielcudnik.base.dto.BaseDTO;
 import io.swagger.annotations.ApiModel;
 
 import java.util.Date;

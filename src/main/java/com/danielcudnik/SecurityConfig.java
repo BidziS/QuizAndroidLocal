@@ -37,8 +37,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService());
-        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
+        auth.userDetailsService(userDetailsService())
+                .and()
+                .inMemoryAuthentication()
+                    .withUser("admin")
+                    .password("12345")
+                    .roles("ADMIN");
+
+
     }
 
     @Bean
@@ -46,18 +52,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new UserDetailsService(){
 
             @Override
-            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+            public UserDetails loadUserByUsername(String username)
+                    throws UsernameNotFoundException {
                 UzytkownikOB uzytkownikOB = iUzytkownikRepository.znajdzPoNicku(username);
                 if(uzytkownikOB!= null){
-                    return new User(uzytkownikOB.getNick(),uzytkownikOB.getHaslo(),true,true,true,true,getAuthorities());
+                    return new User(uzytkownikOB.getNick(),
+                            uzytkownikOB.getHaslo(),
+                            true,true,true,true,
+                            getAuthorities());
 
                 }
                 else {
                     throw new  UsernameNotFoundException("Nie znalazlo uzytkownika '"
                             + username + "'");
                 }
+
             }
         };
+
     }
     private Collection<? extends GrantedAuthority> getAuthorities(){
         List<GrantedAuthority> authList = new ArrayList<>();
@@ -68,7 +80,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.httpBasic().and().authorizeRequests()
+                .antMatchers("/quizAndroid/uzytkownicy/zapiszUzytkownika").permitAll()
+                .antMatchers("/quizAndroid/uzytkownicy/logowanieAdmin").access("hasRole('ADMIN')")
                 .anyRequest().fullyAuthenticated().and().
+
 //                .anyRequest().permitAll().and().
                 httpBasic().and().
                 csrf().disable();

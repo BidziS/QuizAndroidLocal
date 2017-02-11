@@ -1,4 +1,4 @@
-package com.danielcudnik.base.DTO;
+package com.danielcudnik.base.dto;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class BaseDTO {
     private Long id;
     private Date techDate;
 
-    public BaseDTO() { // Konstruktor bezargumentowy ważny! musi być w każdej klasie DTO
+    public BaseDTO() {
     }
 
     public BaseDTO(Long id, Date techDate) {

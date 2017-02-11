@@ -1,7 +1,7 @@
 package com.danielcudnik.uzytkownik.dto;
 
 
-import com.danielcudnik.base.DTO.BaseDTO;
+import com.danielcudnik.base.dto.BaseDTO;
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;

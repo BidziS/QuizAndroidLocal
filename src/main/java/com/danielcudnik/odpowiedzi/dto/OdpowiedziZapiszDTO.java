@@ -1,7 +1,6 @@
 package com.danielcudnik.odpowiedzi.dto;
 
-import com.danielcudnik.base.DTO.BaseDTO;
-import com.danielcudnik.odpowiedzi.EPoprawna;
+import com.danielcudnik.base.dto.BaseDTO;
 
 /**
  * Created by Bidzis on 1/10/2017.

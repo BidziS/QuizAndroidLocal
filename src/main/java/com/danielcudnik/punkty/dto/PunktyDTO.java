@@ -1,13 +1,12 @@
 package com.danielcudnik.punkty.dto;
 
 
-import com.danielcudnik.base.DTO.BaseDTO;
+import com.danielcudnik.base.dto.BaseDTO;
 import com.danielcudnik.tryb.dto.TrybDTO;
 import com.danielcudnik.uzytkownik.dto.UzytkownikDTO;
 import io.swagger.annotations.ApiModel;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Bidzis on 11/9/2016.

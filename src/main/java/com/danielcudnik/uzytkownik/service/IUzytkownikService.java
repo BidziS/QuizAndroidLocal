@@ -20,4 +20,5 @@ public interface IUzytkownikService {
     UzytkownikDTO logowanieUzytkownika(UzytkownikLogowanieDTO aUserDTO) throws MyServerException;
 
     void usunUzytkownika(String aNick) throws  MyServerException;
+    void usunUzytkownikaPoId(Long aId) throws  MyServerException;
 }

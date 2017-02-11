@@ -1,7 +1,7 @@
 package com.danielcudnik.uzytkownik.ob;
 
 
-import com.danielcudnik.base.OB.BaseOB;
+import com.danielcudnik.base.ob.BaseOB;
 
 import javax.persistence.*;
 

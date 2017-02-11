@@ -2,8 +2,7 @@ package com.danielcudnik.odpowiedzi.ob;
 
 
 
-import com.danielcudnik.base.OB.BaseOB;
-import com.danielcudnik.odpowiedzi.EPoprawna;
+import com.danielcudnik.base.ob.BaseOB;
 import com.danielcudnik.pytania.ob.PytaniaOB;
 
 import javax.persistence.*;

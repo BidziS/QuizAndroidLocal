@@ -37,6 +37,12 @@ public class UzytkownikController extends SpringBootServletInitializer implement
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
     }
+    @RequestMapping(value = "/logowanieAdmin",method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<UzytkownikDTO> zalogujAdmin(){
+        return new ResponseEntity<>(HttpStatus.OK);
+
+    }
     @RequestMapping(value = "/pobierzWszystkich",method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<UzytkownikDTO>> znajdzWszystkich(){
@@ -75,6 +81,17 @@ public class UzytkownikController extends SpringBootServletInitializer implement
     public ResponseEntity<UzytkownikDTO> deleteUser(@PathVariable("nick") String aNick){
         try {
             serwisUzytkownika.usunUzytkownika(aNick);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (MyServerException e){
+            return new ResponseEntity<>(e.getHeaders(),e.getStatus());
+        }
+
+    }
+    @RequestMapping(value="/usunPoId/{id}",method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<UzytkownikDTO> deleteUser(@PathVariable("id") Long aId){
+        try {
+            serwisUzytkownika.usunUzytkownikaPoId(aId);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (MyServerException e){
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());

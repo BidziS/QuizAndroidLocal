@@ -2,7 +2,7 @@ package com.danielcudnik.pytania.ob;
 
 
 
-import com.danielcudnik.base.OB.BaseOB;
+import com.danielcudnik.base.ob.BaseOB;
 import com.danielcudnik.kategorie.ob.KategorieOB;
 
 import javax.persistence.*;
@@ -13,7 +13,8 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "pytania")
-@SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_PYTANIA_ID")
+@SequenceGenerator(allocationSize = 1, name = "SEQ",
+        sequenceName = "GEN_PYTANIA_ID")
 public class PytaniaOB extends BaseOB {
     private String pytanie;
     @ManyToOne(fetch = FetchType.LAZY)

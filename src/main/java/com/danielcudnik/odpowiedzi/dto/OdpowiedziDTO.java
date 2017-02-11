@@ -2,8 +2,7 @@ package com.danielcudnik.odpowiedzi.dto;
 
 
 
-import com.danielcudnik.base.DTO.BaseDTO;
-import com.danielcudnik.odpowiedzi.EPoprawna;
+import com.danielcudnik.base.dto.BaseDTO;
 import com.danielcudnik.pytania.dto.PytaniaDTO;
 
 import java.util.Date;

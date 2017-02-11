@@ -2,13 +2,12 @@ package com.danielcudnik.punkty.ob;
 
 
 
-import com.danielcudnik.base.OB.BaseOB;
+import com.danielcudnik.base.ob.BaseOB;
 import com.danielcudnik.tryb.ob.TrybOB;
 import com.danielcudnik.uzytkownik.ob.UzytkownikOB;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * Created by Bidzis on 11/9/2016.
@@ -17,12 +16,15 @@ import java.util.List;
 @Table(name = "punkty")
 @SequenceGenerator(allocationSize = 1, name = "SEQ", sequenceName = "GEN_PUNKTY_ID")
 public class PunktyOB extends BaseOB {
+
     private Long punkty;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TRYB_ID", referencedColumnName = "ID")
     @NotNull
     private
     TrybOB tryb;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="UZYTKOWNICY_ID",referencedColumnName = "ID")
     @NotNull
@@ -30,6 +32,7 @@ public class PunktyOB extends BaseOB {
     UzytkownikOB uzytkownicy;
 
     public  PunktyOB(){}
+
     public PunktyOB(TrybOB tryb) {
         this.tryb = tryb;
     }

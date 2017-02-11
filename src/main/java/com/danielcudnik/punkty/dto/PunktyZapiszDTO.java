@@ -1,6 +1,6 @@
 package com.danielcudnik.punkty.dto;
 
-import com.danielcudnik.base.DTO.BaseDTO;
+import com.danielcudnik.base.dto.BaseDTO;
 
 import java.util.Date;
 

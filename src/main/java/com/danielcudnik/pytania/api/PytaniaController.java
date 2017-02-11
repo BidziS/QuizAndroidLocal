@@ -27,13 +27,13 @@ public class PytaniaController {
         this.serwisPytania = serwisPytania;
     }
 
-    @RequestMapping(value = "pobierzPoKategorii/{kategorie.id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/pobierzPoKategorii/{kategorie.id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<PytaniaDTO>> znajdzPytaniaPoKategorii(@PathVariable("kategorie.id") Long aIdKategorii) {
         return new ResponseEntity<>(serwisPytania.znajdzPytaniaPoKategorii(aIdKategorii), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "pobierzPoNazwieKategorii/{kategorie.nazwa}", method = RequestMethod.GET)
+    @RequestMapping(value = "/pobierzPoNazwieKategorii/{kategorie.nazwa}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<PytaniaDTO>> znajdzPytaniaPoNazwieKategorii(@PathVariable("kategorie.nazwa") String aNazwaKategorii) {
         return new ResponseEntity<>(serwisPytania.znajdzPytaniaPoNazwieKategorii(aNazwaKategorii), HttpStatus.OK);
@@ -57,7 +57,8 @@ public class PytaniaController {
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
     }
-    @RequestMapping(value = "usunPoId/{id}", method = RequestMethod.PUT)
+    @CrossOrigin
+    @RequestMapping(value = "/usunPoId/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity<Void> usunPytanie(@PathVariable("id")Long aId) throws MyServerException {
         serwisPytania.usunPytania(aId);
@@ -72,7 +73,7 @@ public class PytaniaController {
             return new ResponseEntity<>(e.getHeaders(),e.getStatus());
         }
     }
-    @RequestMapping(value = "losujPoKategorii/{kategorie.id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/losujPoKategorii/{kategorie.id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<PytaniaDTO>> losujPytaniaPoKategorii(@PathVariable("kategorie.id") Long aIdKategorii) {
         return new ResponseEntity<>(serwisPytania.losujPytaniaPoKategorii(aIdKategorii), HttpStatus.OK);

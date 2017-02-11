@@ -1,9 +1,5 @@
 package com.danielcudnik.pytania.dto;
 
-import com.danielcudnik.base.DTO.BaseDTO;
-
-import java.util.Date;
-
 /**
  * Created by Bidzis on 1/10/2017.
  */
